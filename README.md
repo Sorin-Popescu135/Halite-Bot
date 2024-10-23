@@ -1,55 +1,14 @@
-# Project Evaluator
+# Halite Bot
 
-Conţinutul repository-ului:
+## Description
 
-- environment/          - engine-ul jocului 
-- replays/              - folder cu rezultatele rularii botului (fisiere tip *.hlt) - (se genereaza automat la rulare)
-- bots/                 - folder cu botii pusi la dispozitie de echipa de PA
-- run.py                - scriptul de evaluare
-- halite-resources.zip  - arhivă cu conținutul acestui repository
-- README.md             - acest fisier
+**Project Evaluator** is a competitive AI bot designed for the Halite programming competition. This bot implements strategic decision-making algorithms to compete against other bots in a grid-based game environment. The project demonstrates proficiency in game theory and artificial intelligence, focusing on optimizing resource management and tactical movements. It includes a set of pre-defined strategies, and participants can test, analyze, and refine their bots using the provided evaluation framework.
+
+## Repository Structure
+
+- **environment/** - Contains the game engine.
+- **replays/** - Stores the results of the bot's execution (files with the extension *.hlt) - generated automatically during runs.
+- **bots/** - Folder with sample bots provided by the PA team.
+- **run.py** - Evaluation script.
 
 
-Prerequisites
-===============
-
-Pentru rularea scriptului de evaluare aveți nevoie de Python (>= 3.6).
-Scriptul a fost testat pe o masina de Linux de 64 bits.
-    
-
-Testare
-===============
-
-Scriptul va realiza urmatorii pasi inainte de executia propriu-zisa:
-
-- va incerca sa compileze engine-ul jocului daca executabilul (halite) nu se afla in path
-- va incerca sa ruleze "make" pentru a re-compila botul daca descopera un fisier de tip Makefile in path 
-- va sterge log-urile ramase de la executiile precedente
-
-Important: Folositi versiunea engine-ului din acest repo (folderul environment/).
-Spre deosebire de engine-ul din competitia originala am facut cateva modificari minore pentru
-ca fisierele generate de logging sa ofere mai multe informatii. Scriptul acesta se bazeaza 
-pe modificarile respective.
-
-Example rulare:
-
-C++ Bot:
-
-    python ./run.py --cmd "./MyBot" --round 2 
-
-Java Bot:
-
-    python ./run.py --cmd "java MyBot" --round 2 --visualizer "firefox"
-
-Python:
-
-    python ./run.py --cmd "python3 MyBot.py" --round 2 --visualizer "google-chrome-stable"
-    
-Arguments
-
-    --cmd        Comanda de execuție pentru bot (trebuie sa fie validă pentru locația curentă)
-    --round      (Optional) Indicele rundei (1, 2, 3, 4, 5), default 0 (le ruleaza pe toate)
-    --clean      (Optional) Șterge fișierele de log/replays, apeleaza `make clean`
-    --visualiser (Optional) Numele browser-ului in care sa fie afisate rezultatele fiecarui joc
-    --logging    (Optional) Defineste cat de explicite (verbose) sunt mesajele de logging. Optiunile sunt: 
-        - 'critical' (doar mesajele critice), 'info', 'debug' (most verbose) 
